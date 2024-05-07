@@ -30,33 +30,67 @@ class _DiceRollerState extends State<DiceRoller> {
   
   @override
   Widget build(context) {
-    return Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Image.asset(
-              'assets/images/dice-$currentDiceRoll.png',
-              width: 200,
-            ),
-           
-          Image.asset(
-              'assets/images/dice-$currentDiceRoll2.png',
-              width: 200,
-            ),
-            const SizedBox(height: 20),
-            TextButton(
-                // onPressed: () {}),
-                onPressed: rollDice,
-                style: TextButton.styleFrom(
-                  // padding: const EdgeInsets.only(top: 20,),
-                  foregroundColor: Colors.white,
-                  textStyle: const TextStyle(
-                    fontSize: 28,
-                  ),
+    return Row(
+          children: <Widget>[
+            Column(mainAxisSize: MainAxisSize.min,
+              children: [
+                Image.asset(
+                  'assets/images/dice-$currentDiceRoll.png',
+                  width: 200,
                 ),
-                child: const Text(
-                  'Roll Dice',
-                  style: TextStyle(color: Colors.white),
-                ))],
+              
+                Image.asset(
+                  'assets/images/dice-$currentDiceRoll2.png',
+                  width: 200,
+                ),
+                const SizedBox(height: 20),
+                TextButton(
+                    // onPressed: () {}),
+                    onPressed: rollDice,
+                    style: TextButton.styleFrom(
+                      // padding: const EdgeInsets.only(top: 20,),
+                      foregroundColor: Colors.white,
+                      textStyle: const TextStyle(
+                        fontSize: 28,
+                      ),
+                    ),
+                    child: const Text(
+                      'Roll Dice',
+                      style: TextStyle(color: Colors.white),
+                    ))],
+
+                    ),
+              Column(mainAxisSize: MainAxisSize.min,
+                children: [
+                  Image.asset(
+                    'assets/images/dice-$currentDiceRoll.png',
+                    width: 200,
+                  ),
+                
+                  Image.asset(
+                    'assets/images/dice-$currentDiceRoll2.png',
+                    width: 200,
+                  ),
+                  const SizedBox(height: 20),
+                  TextButton(
+                      // onPressed: () {}),
+                      onPressed: rollDice,
+                      style: TextButton.styleFrom(
+                        // padding: const EdgeInsets.only(top: 20,),
+                        foregroundColor: Colors.white,
+                        textStyle: const TextStyle(
+                          fontSize: 28,
+                        ),
+                      ),
+                      child: const Text(
+                        'Roll Dice',
+                        style: TextStyle(color: Colors.white),
+                      ))],
+                      
+                      )
+
+          ]
+          
         );
   }
 }
