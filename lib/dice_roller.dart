@@ -43,8 +43,12 @@ class _DiceRollerState extends State<DiceRoller> {
   Widget build(context) {
     return Row(
           children: <Widget>[
+            const SizedBox(width: 150),
             Column(mainAxisSize: MainAxisSize.min,
               children: [
+                const Text(
+                  "Player Blue",
+                  style: TextStyle(color: Colors.white, fontSize: 32)),
                 Image.asset(
                   'assets/images/dice-$currentDiceRoll.png',
                   width: 200,
@@ -71,8 +75,12 @@ class _DiceRollerState extends State<DiceRoller> {
                     ))],
 
                     ),
+              const SizedBox(width: 700),
               Column(mainAxisSize: MainAxisSize.min,
                 children: [
+                  const Text(
+                  "Player Red",
+                  style: TextStyle(color: Colors.white, fontSize: 32)),
                   Image.asset(
                     'assets/images/dice-$currentDiceRoll3.png',
                     width: 200,
