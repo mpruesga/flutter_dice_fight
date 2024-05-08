@@ -36,8 +36,55 @@ class _DiceRollerState extends State<DiceRoller> {
       currentDiceRoll3 = randomizer.nextInt(6) + 1; // Value between 1 and 6
       currentDiceRoll4 = randomizer.nextInt(6) + 1; // Value between 1 and 6
     });
-    // print('Changing image...');
+    
   }
+
+  var blue_score = 0;
+  var red_score = 0;
+  var win = "";
+  void winner(){
+    blue_score = currentDiceRoll+currentDiceRoll2;
+    red_score = currentDiceRoll3+currentDiceRoll4;
+    if (blue_score > red_score){
+      win = "blue";
+    }
+    else if (red_score > blue_score){
+      win = "red";
+    }
+    else{
+      win="tie";
+    }
+    _showMyDialog(win);
+  }
+  
+Future<void> _showMyDialog(win) async {
+  return showDialog<void>(
+    context: context,
+    barrierDismissible: false, // user must tap button!
+    builder: (BuildContext context) {
+      return AlertDialog(
+        title: const Text('Dice Fight'),
+        content: SingleChildScrollView(
+          child: ListBody(
+            children: <Widget>[
+              Text('The winner is'),
+              Text(win),
+            ],
+          ),
+        ),
+        actions: <Widget>[
+          TextButton(
+            child: const Text('Approve'),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
+        ],
+      );
+    },
+  );
+}
+  
   
   @override
   Widget build(context) {
@@ -93,7 +140,7 @@ class _DiceRollerState extends State<DiceRoller> {
                   const SizedBox(height: 20),
                   TextButton(
                       // onPressed: () {}),
-                      onPressed: rollDice2,
+                      onPressed:() {winner();},
                       style: TextButton.styleFrom(
                         // padding: const EdgeInsets.only(top: 20,),
                         foregroundColor: Colors.white,
