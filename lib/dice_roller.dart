@@ -42,7 +42,8 @@ class _DiceRollerState extends State<DiceRoller> {
   var blue_score = 0;
   var red_score = 0;
   var win = "";
-  void winner(){
+  void Roll(){
+    rollDice1(); rollDice2();
     blue_score = currentDiceRoll+currentDiceRoll2;
     red_score = currentDiceRoll3+currentDiceRoll4;
     if (blue_score > red_score){
@@ -106,23 +107,25 @@ Future<void> _showMyDialog(win) async {
                   width: 200,
                 ),
                 const SizedBox(height: 20),
-                TextButton(
-                    // onPressed: () {}),
-                    onPressed: rollDice1,
-                    style: TextButton.styleFrom(
-                      // padding: const EdgeInsets.only(top: 20,),
-                      foregroundColor: Colors.white,
-                      textStyle: const TextStyle(
-                        fontSize: 28,
-                      ),
-                    ),
-                    child: const Text(
-                      'Roll Dice',
-                      style: TextStyle(color: Colors.white),
-                    ))],
+                ],
 
                     ),
-              const SizedBox(width: 700),
+              const SizedBox(width: 200),
+              TextButton(
+                      // onPressed: () {}),
+                      onPressed:() {Roll();},
+                      style: TextButton.styleFrom(
+                        // padding: const EdgeInsets.only(top: 20,),
+                        foregroundColor: Colors.white,
+                        textStyle: const TextStyle(
+                          fontSize: 28,
+                        ),
+                      ),
+                      child: const Text(
+                        'Roll Dices',
+                        style: TextStyle(color: Colors.white),
+                      )),
+              const SizedBox(width: 200),
               Column(mainAxisSize: MainAxisSize.min,
                 children: [
                   const Text(
@@ -136,22 +139,8 @@ Future<void> _showMyDialog(win) async {
                   Image.asset(
                     'assets/images/dice-$currentDiceRoll4.png',
                     width: 200,
-                  ),
-                  const SizedBox(height: 20),
-                  TextButton(
-                      // onPressed: () {}),
-                      onPressed:() {winner();},
-                      style: TextButton.styleFrom(
-                        // padding: const EdgeInsets.only(top: 20,),
-                        foregroundColor: Colors.white,
-                        textStyle: const TextStyle(
-                          fontSize: 28,
-                        ),
-                      ),
-                      child: const Text(
-                        'Roll Dice',
-                        style: TextStyle(color: Colors.white),
-                      ))],
+                  )
+                  ],
                       
                       )
 
